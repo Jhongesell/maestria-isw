@@ -1,0 +1,302 @@
+% 		InNSTRUCTIVO PARA CONSTRUIR EL ENSAYO DE FICCIÓN EN LATEX
+%					v.1.3
+%				elaborado por @rmuriel
+%		---------------------------------------------------
+		
+% Este instructivo se crea para facilitar la comprensión sobre la estructura de un trabajo escrito en LaTeX, y de paso para que se comprenda una forma (entre las miles que existen) en que se podría construir un «ensayo de ficción».
+
+% Antes de empezar, para algunos será útil que lo diga, se observará que el documento está dividido en títulos en mayúscula y comentarios en color azul (como este). Corresponden a las partes habituales de un documento LaTeX y mis explicaciones. La parte que van a modificar se llama «CUERPO DEL DOCUMENTO». No tienen que saber código LaTeX para hacer este trabajo, sólo se dejan guiar por esta plantilla y listo. Más allá de leer juiciosamente este instructivo, no necesitan más!! :)
+
+% Lo que esté en latín y en color negro es lo que ustedes van a modificar. Verán que es muy fácil... abran la mente y déjense guiar! :)
+
+% Comencemos!! 
+
+%================================================================»
+% 0 - RAZONES POR LAS QUE HACEMOS ESTE TRABAJO EN LATEX
+%================================================================»
+
+% 1. LaTeX es el lenguaje del mundo académico. Las mejores universidades del mundo funcionan así, en todas existe al menos una cátedra permanente de LaTeX. En Colombia, lastimosamente, sólo lo usa la Universidad Nacional, la Universidad de Antioquia y la Universidad de los Andes. Cada una de estas universidades tiene formatos (plantillas LaTeX) para trabajos de semestre, tesis, informes de laboratorio, ensayos y exámenes parciales. 
+
+% 2. En dos aspectos importantes es el procesador de texto más efectivo que existe: rendimiento de la máquina (no hace que se cuelgue) y acabado editorial del documento (La forma final del documento es profesional y responde a los cánones editoriales internacionales).
+
+% 3. Es software libre y multiplataforma. Se puede trabajar desde casi cualquier sistema operativo respetable. No necesita ser pirateado y está disponible para su descarga las 24 horas del día. Sin contar con que existe https://www.writelatex.com, que hace el trabajo mucho más cómodo de manera online. 
+
+% 4. Automatiza procedimientos mecánicos típicos en la construcción de documentos:  autonumeración de fórmulas, generación de listas, creación de índices de contenido, de tablas, figuras y terminológicos, etc. 
+
+% 5. La preocupación por la forma se la deja uno al computador. Uno no tiene que pensar en las márgenes, en las negritas de los títulos, en el tipo de letra, etc... De esas formalidades se encarga LaTeX... Uno sólo se concentra en producir contenido, que es para eso que se inventaron los procesadores de texto en una computadora. Preocuparse por la forma es como si no se hubiera superado la época de la máquina de escribir. 
+
+% 6. Permite el uso de bases de datos bibliográficas con BibTeX. Se ahorra tiempo a la hora de citar textos y hacer listados de publicaciones. Basta con hacer una vez la base bibliográfica y uno sólo debe «llamar» las referencias usadas para cualquier cantidad de textos que uno escriba. En esto LaTeX está conectado con Mendeley, la base de datos bibliográfica más importante de la actualidad en el mundo académico. 
+
+% y como si esto fuera poco...
+
+% 7. Con LaTeX se permiten hacer comentarios en cualquier sección del texto sin que aparezcan en el documento final. Basta con introducir un signo de porcentaje (%) antes de empezar a escribirlos. 
+
+% De modo que... empecemos desde ya a usar LaTeX!!!!
+
+%================================================================»
+% I - PREÁMBULO
+%================================================================»
+
+% Antes de escribir el texto como tal, para LaTeX es importante clarificar algunos aspectos básicos sobre la naturaleza del documento que se va a escribir. Esta primera parte se llama «PREÁMBULO» y es el lugar donde se clarifican los siguientes aspectos:
+
+% - Tamaño de hoja y de fuente
+% - Tipo de documento: libro, artículo, informe, etc.
+% - Paquetes de información: español, márgenes, copiado pdf, colores, gráficos, etc. 
+% - Autor, título y fecha
+% - Algunos ajustes a la estética del documento general
+
+%----------------------------------------------------------------»
+% a - Definición de la Clase del Documento 
+%----------------------------------------------------------------»
+
+\documentclass[11pt,letterpaper]{article}
+
+%----------------------------------------------------------------»
+% b - Paquetes para trabajar en español 
+%----------------------------------------------------------------»
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+%----------------------------------------------------------------»
+% c - Paquetes para solucionar el copiado del pdf
+%----------------------------------------------------------------»
+
+\usepackage{times}		
+\usepackage[T1]{fontenc}	
+
+%----------------------------------------------------------------»
+% d - Paquetes especiales (Según las necesidades del documento)
+%----------------------------------------------------------------»
+
+\usepackage[colorinlistoftodos]{todonotes} %Para insertar notas al lado
+\usepackage{graphicx} %Para usar imágenes
+\usepackage{tikz} %Para construir gráficos con código
+\usepackage{epigraph} %Hacer epígrafes
+\usepackage{multicol} %Construir múltiples columnas en el documento
+\usepackage{color} %Para darle color a la fuentes
+\usepackage{soul} %Para tachar palabras
+\usepackage{ulem} %Para subrayados y tachados especiales (\uuline, \uwave, \xout) Aunque casi nunca se usan, a veces pueden introducirse para remarcar algo. 
+
+%----------------------------------------------------------------»
+% e - Paquete para generar links (Si el doc. tiene hipervínculos)
+%----------------------------------------------------------------»
+
+\usepackage[backref]{hyperref}	% Soporte para generación de Links - Ojalá siempre el último paquete nombrado
+\hypersetup{pdfborder={0 0 0}}	% Quitarle los bordes a los links
+
+%----------------------------------------------------------------»
+% f - Arreglos sobre la estética de los párrafos (Opcional)
+%----------------------------------------------------------------»
+
+\setlength\parindent{0pt}	% Si se quiere suprimir la sangría de los párrafos
+\setlength{\parskip}{2mm}	% Si se quiere espaciar todos los párrafos
+
+%----------------------------------------------------------------»
+% g - Autor, título y fecha del Documento
+%----------------------------------------------------------------»
+
+\author{Ana Isabel Meneses Franco\thanks{60961911, Ing Indutrial, UAO,2015}}
+\title{La revelación de los sentimientos}
+ 
+
+%================================================================»
+% II - CUERPO DEL DOCUMENTO
+%================================================================»
+
+% Después de todo el preámbulo nos adentramos en la escritura del trabajo. El CUERPO DEL DOCUMENTO en LaTeX siempre inicia con las siguientes dos instrucciones:
+
+\begin{document}
+\maketitle
+% En el CUERPO DEL DOCUMENTO es donde vamos a encontrar:
+% - Abstract
+% - Secciones y subsecciones
+% - Tabla de contenido
+% - Tablas
+% - Gráficos
+% - Notas al pie y al márgen
+% - Párrafos especiales (cita)
+% - Bibliografía
+
+%----------------------------------------------------------------»
+% a - Creación del resumen (Abstract)
+%----------------------------------------------------------------»
+
+% El abstract es el resumen del ensayo. Se expone, entre cuatro y siete líneas, la naturaleza del escrito, su tema, el tipo de indagación y los intereses del texto. 
+
+\begin{abstract}
+
+\end{abstract}
+
+%----------------------------------------------------------------»
+% b - Escribir el Epígrafe (Opcional)
+%----------------------------------------------------------------»
+
+% Uno puede escribir o no un epígrafe al principio de un ensayo. Ustedes quizá lo han visto con frecuencia en diferentes tipos de escritos (ensayos, novelas, etc.) - Lo importante es que el epígrafe aluda a algo importante que usted quiere comunicar en el ensayo. 
+
+\epigraph{Si eres capaz de conocer al otro tal como es y aceptarlo has iniciado el verdadero camino de la paz}
+
+%----------------------------------------------------------------»
+% c - Inicio de las secciones del documento
+%----------------------------------------------------------------»
+
+\section*{Introducción} % La instrucción  \section con el signo * hace que no quede numerado.
+
+
+% En la «Introducción» se escribe una preparación a la discertación. La idea es atrapar al lector con sus propios intereses. Hacerle caer en cuenta que a él le gustaría leer sobre lo que usted le va a contar, especialmente le gustaría saber las razones por las cuales él debería ser un inventor como usted!!
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eleifend arcu. Mauris molestie vitae augue vel malesuada. Sed sit amet orci sit amet risus sollicitudin ultricies. Etiam mattis nec nunc et congue. Suspendisse et blandit lacus, eget tempus augue. Donec et pulvinar dolor. Aenean ac nisi at velit tincidunt laoreet. Duis nec quam rutrum, placerat dolor at, eleifend turpis. Etiam eget blandit ligula. \textcolor{red}{Aenean porttitor} id tellus quis ultricies. Quisque eu sapien lacinia, varius quam a, fringilla purus. Sed eu lorem pretium, pulvinar nulla in, congue eros. Mauris scelerisque dolor vitae augue euismod, sit amet rutrum sem faucibus. In nec sapien mollis, convallis libero quis, tincidunt metus.
+
+\underline{Bed bibendum leo lacus, non tincidunt lacus ornare imperdiet}. Mauris gravida elementum odio quis mollis. Donec pretium eros ac quam ornare, id aliquet leo fringilla. Curabitur enim dolor, volutpat a consectetur et, sollicitudin quis nisl. Proin ipsum tortor, dictum quis mauris vel, semper auctor orci. Morbi sodales ante non nibh auctor, nec bibendum metus fermentum. Quisque nec ullamcorper tortor. Aenean id est condimentum, commodo velit nec, mollis velit.
+
+
+% ----------------------
+% La intrucción \underline se usa para subrayar frases. 
+% ----------------------
+\section{1. Origen }
+
+% Aquí se empieza con los argumentos. El título de cada uno de ellos puede modificarse y ser más acorde con el tipo de argumento que va a ofrecer. Recuerde que se trata de RAZONES y no de OPINIONES. 
+
+Desde el inicio de los tiempos, las relaciones humanas han marcado nuestro desarrollo, permean diversas las dimensiones de la vida humana, la sociedad, el trabajo, el conocimiento, el amor, la familia y en general todo, consideraría que es lo que nos define como humanos, es nuestra esencia, mediante la relación con el otro o los otros validamos nuestra existencia, casi que sin ese relacionamiento no existimos como seres sociales.
+
+Sin embargo este relacionamiento es todo un universo, donde cada galaxia y planetas del "Yo" son tan diversos e infinitos como las mismas estrellas, nuestro ser se conforma de experiencias, enseñanzas y conocimientos que van marcando nuestras reacciones frente a las acciones de quienes nos rodean y también determinan que acciones nosotros generamos en nuestros semejantes. 
+
+
+% ----------------------
+% Se van a dar cuenta de que el subrayado con \underline no funciona si lo que quieren es subrayar un párrafo completo, esta instrucción se usa sólo en palabras o frases cortas. 
+% ----------------------
+
+%\begin{quote}
+%"Curabitur enim dolor, volutpat a consectetur et, sollicitudin quis nisl. Proin ipsum tortor, dictum quis mauris vel, semper auctor orci." (Autor, 1980)
+%\end{quote%
+
+Si por un minuto fuésemos sinceros con nosotros mismos, a plena conciencia reconoceríamos que  los humanos no mostramos realmente quienes somos al mundo, incluso desde niños, fingimos enmascaramos sentimientos o fingimos otros para conseguir propósitos, no mostramos quienes somos y que sentimos realmente… las razones, son muchas dependen del individuo y del tiempo y época en la cual este individuo ha llegado al mundo, en la prehistórica recurríamos a unas ansias por demostrar fortaleza aun cuando los seres humanos sintieran miedo por las fieras de la época , luego al inventar el dinero y otras estructuras sociales esta dinámica de enmascaramiento aumento por el deseo de tener y acumular riqueza. Se podría concluir que el hombre es un ser carente, lleno de necesidades que no manifiesta y que tampoco sabe leer en los otro
+
+Autores como Zapata 1986 considera que las  por diferentes razones son principalmente el miedo y la avaricia, sin embargo podríamos agregar situaciones como  conveniencia,  estrategia,  poder y en otros casos  alegría, pasión y podríamos tener una lista interminable que tiene una tendencia de crecimiento exponencial, en este mundo cada día más competitivo y basado más en el parecer que en el ser.  
+
+\footnote{Zapara 1986, Estudios generales sobre el miedo} 
+
+% ----------------------
+% La instrucción \footnote{} es para hacer pies de página. Como se ve en el resultado en PDF, generan un numerito consecutivo, a la manera habitual de los pies de página de los artículos o libros de ciencia. 
+% ----------------------
+
+
+\section{Razón No.2}
+
+Integer vitae ultricies risus. Donec diam purus, viverra sed egestas aliquet, tempor nec turpis. Donec eu nisi semper, dapibus ligula eu, laoreet ante. Aliquam pellentesque velit nec eleifend eleifend. Pellentesque ut tristique risus. Nunc a risus ultricies, pulvinar enim sit amet, dictum justo. Phasellus elit velit, fringilla in turpis nec, faucibus ornare lacus\footnote{Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.}. Praesent ac diam aliquam, aliquet arcu vestibulum, dignissim elit. Donec interdum mattis lectus, et iaculis lacus sagittis eu. Aliquam posuere pharetra diam ut porttitor. Vivamus semper tortor adipiscing arcu vehicula, iaculis pretium purus eleifend.
+
+Mauris pretium quis augue vel placerat. Proin gravida massa sapien. Integer interdum eros feugiat eros sagittis, in laoreet quam lobortis. Nullam sed arcu elementum, hendrerit risus volutpat, blandit leo. Nunc porttitor, eros a vestibulum adipiscing, turpis est imperdiet tellus, et hendrerit elit justo dictum urna. Nam vestibulum sem sed neque viverra, a sagittis risus malesuada. Suspendisse potenti. Morbi sed eleifend orci. Aenean fermentum ornare fermentum. Praesent volutpat, purus nec tempus iaculis, lacus sapien volutpat purus, id mollis urna ligula nec nibh.
+
+\subsection{Subtítulo}
+
+% Este apartado se construye en dos columnas. Eso es gracias al paquete «multicol» que escribimos en el «preámbulo». Determinamos la cantidad de columnas dentro del segundo corchete del ambiente «multicols», tal y como sigue:
+
+\begin{multicols}{2}
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin cursus lacus laoreet velit eleifend egestas. Nunc condimentum purus nec libero tincidunt, vel ultrices odio commodo. Maecenas rutrum metus eget ligula feugiat fermentum nec in nisi. Nullam non tempor enim, vitae pharetra massa. Donec sodales porttitor erat, vitae commodo elit dapibus iaculis. Aliquam sit amet sem pretium, posuere arcu eget, lacinia dolor. Fusce condimentum, purus a tincidunt consequat, metus dui ullamcorper massa, non tempus est tellus at erat. Mauris congue eleifend consequat. Maecenas lacinia imperdiet euismod. Morbi tristique erat ac velit volutpat, quis tristique ligula condimentum. Sed bibendum ante quis faucibus bibendum.
+
+Nam at lacus aliquam, dictum justo sit amet, ultrices nisl. Quisque et dui at erat ultricies ullamcorper vel nec tellus. Proin malesuada id nisi tempus tempus. Phasellus et imperdiet lacus, id eleifend lorem. Curabitur laoreet varius congue. Fusce vehicula vestibulum orci, vitae tristique turpis scelerisque consectetur. Mauris in urna egestas, dapibus urna id, tristique libero. Suspendisse eleifend sem ac sollicitudin placerat. Nam venenatis arcu iaculis interdum tristique. Integer lacinia tortor nec leo interdum, vel tristique ante euismod. In id lacus ac elit dignissim tempus. Vivamus commodo porta convallis.
+\end{multicols}
+
+\subsection{Otro subtítulo}
+
+Etiam luctus, metus et mollis dapibus, arcu urna ullamcorper ante, sed accumsan augue orci imperdiet tellus. Phasellus quis nisi convallis, tincidunt nulla in, eleifend risus. Duis egestas, justo a lobortis ultrices, nibh nibh pellentesque eros, vel consequat urna elit sit amet neque. Vestibulum pharetra libero nibh, a fermentum quam ornare molestie. Quisque blandit egestas enim ut auctor. Nulla scelerisque, sapien a pulvinar scelerisque, leo ante rutrum sapien, et luctus tellus turpis et lacus. Nunc condimentum quam sed turpis egestas lacinia.
+
+Fusce vehicula luctus tellus. Aliquam sem orci, placerat eget urna viverra, posuere facilisis risus. Duis faucibus euismod nibh ac cursus. Nulla vel justo tellus. Curabitur ultrices vestibulum tortor, fringilla laoreet nibh sodales eget. Mauris est elit, pharetra quis metus ut, iaculis pulvinar magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla a auctor orci.
+
+\section{Razón No.3}
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse sagittis sem ornare est molestie sodales. In ac ipsum nec massa imperdiet hendrerit vitae vel lectus. Aliquam rutrum augue in lorem viverra, non luctus orci ultrices. Vivamus malesuada neque quis scelerisque bibendum. Pellentesque in felis dignissim, adipiscing justo vel, varius nisi. Vestibulum eleifend diam nec leo dapibus lobortis. Vivamus malesuada lacinia nisi, ut mattis massa molestie vitae. Nullam a viverra nunc. Nam suscipit molestie velit, et ultrices velit vehicula sit amet. Nunc fringilla imperdiet dictum. Maecenas mattis mauris lectus, id semper erat vestibulum id. Etiam non erat ut magna suscipit ornare vel sit amet enim. Suspendisse hendrerit nulla ac diam dapibus consectetur.
+
+Nullam vel elementum neque, quis mattis tortor. Nam molestie enim condimentum bibendum accumsan. Nulla in ligula viverra, varius enim non, dapibus augue. Praesent nec varius magna. Sed at justo nec erat semper vehicula. Aliquam id ligula sed felis dignissim facilisis. Sed vehicula erat eu ipsum egestas malesuada. Sed porta, ipsum fermentum bibendum vestibulum, purus urna rhoncus sapien, vitae pulvinar urna lacus eget neque. Mauris suscipit eros vestibulum viverra luctus. Donec consequat posuere aliquam. Donec sit amet pharetra dolor. Donec hendrerit nisi ut sapien sollicitudin, quis auctor tellus posuere. Proin faucibus dolor et facilisis laoreet.
+
+\section{Razón No.4}
+
+Sed tempor ut velit vitae molestie. Duis purus est, venenatis hendrerit metus quis, blandit volutpat mauris. Maecenas ut dolor sit amet augue lacinia sagittis a eu ligula. Duis fermentum libero non metus ullamcorper dictum. Vivamus lacinia porttitor imperdiet. In dapibus, odio vel blandit tristique, massa erat pretium tortor, a egestas ligula augue ac risus. Fusce ullamcorper, risus eu dictum ultrices, ligula nisl blandit tortor, quis tristique magna dolor scelerisque felis. Aenean massa orci, sodales vitae nibh id, molestie ornare nisl. Duis vel auctor enim, in adipiscing quam. Nullam eget neque congue, iaculis nibh ut, eleifend nisi. Phasellus et orci ut odio dictum sodales id ac dolor. Ut vehicula placerat nunc, nec interdum tortor venenatis sit amet. Integer est ante, scelerisque pretium erat vitae, blandit malesuada quam. Aliquam in elit a risus semper suscipit.
+
+Etiam pretium aliquam eleifend. Sed nec accumsan nibh. Praesent a metus vel leo laoreet convallis vel et libero. Nulla eget tortor et libero consectetur placerat id ac sapien. Nullam ultricies feugiat rhoncus. Etiam tempus diam at nunc scelerisque sodales. Nam nec justo et neque molestie ultrices. Aliquam ullamcorper purus in lacus tempor semper. Cras posuere erat leo, nec pharetra mi vehicula nec. Aliquam tempus metus sit amet magna porta faucibus. Nam euismod sem et lectus interdum, a dapibus tortor scelerisque. Cras congue imperdiet magna in pellentesque. Quisque at mauris rhoncus, suscipit mi nec, fermentum mi.
+
+\section{Razón No.5}
+
+Mauris ac varius diam. Nam id metus iaculis, tempor justo at, hendrerit nulla. Pellentesque ac accumsan diam, non pellentesque lectus. Aliquam viverra eget arcu et ultrices. Sed vel ultricies diam. Duis vel rhoncus tellus. Fusce at dignissim dolor, quis pharetra ipsum. Duis eget turpis vitae mauris tempor euismod et ac felis. Aliquam eget rutrum nulla. Ut libero sem, ullamcorper ac tortor eu, vestibulum ornare ipsum. Pellentesque facilisis viverra vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur turpis nunc, dapibus ac placerat nec, viverra vel lorem. Donec dictum eu nisi sit amet egestas. Donec ac ultricies dolor, at fermentum mauris. Sed fringilla sollicitudin quam, et blandit massa.
+
+Praesent eros lacus, ullamcorper a mi at, convallis elementum ante. Quisque sit amet aliquam lorem. Maecenas a ullamcorper lorem. Morbi sed turpis mauris. Proin suscipit elit in mauris iaculis elementum. Sed ut blandit magna, vitae condimentum sapien. Aenean eget nunc enim. Ut tincidunt libero in bibendum aliquet. Pellentesque vitae massa urna. Proin sit amet erat sed metus blandit tincidunt et in velit. Nullam accumsan sollicitudin dignissim. Nunc vulputate tincidunt nulla. Vivamus lorem nisl, egestas eu lacus id, tincidunt laoreet risus.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elit leo, fermentum sed interdum vitae, auctor eu lectus. Aenean sodales lectus at purus sagittis elementum. Quisque eu euismod purus, eu elementum mauris. Quisque sodales tincidunt turpis, ut mattis nisl aliquam eu. Nullam ac metus turpis. Proin lacus diam, ultricies viverra dui eu, posuere viverra lectus. Duis accumsan enim vitae mattis malesuada. Proin eget eros dignissim, vulputate tellus non, pharetra ipsum. Donec nec eros tempor, rhoncus ligula eu, condimentum eros. Etiam porttitor turpis eu ligula volutpat, sit amet cursus erat auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sollicitudin, neque ut sagittis condimentum, sapien erat egestas orci, sit amet ullamcorper tellus odio ac eros. Nullam lectus lorem, pulvinar ut mauris at, porttitor convallis purus. Morbi blandit consectetur elit vitae convallis.
+
+\section{Razón No.6}
+
+Ut non tempus quam, sed suscipit est. Donec turpis est, egestas et dolor quis, varius interdum erat. Duis scelerisque eros nec sem fermentum, sit amet mattis sem molestie. Sed odio lacus, consectetur ac fringilla eget, viverra nec risus. Aliquam molestie, risus sed posuere blandit, nisi purus pharetra risus, ac bibendum diam mauris id ligula. Proin congue euismod est, ut euismod turpis bibendum id. Mauris dapibus posuere turpis id facilisis. Aliquam a velit ultrices, consectetur tortor nec, pharetra lacus. Maecenas luctus ante vel mauris feugiat, id luctus erat sagittis. Curabitur non ante ac turpis pellentesque adipiscing. Sed vitae ligula turpis.
+
+Vivamus ut condimentum tortor, vel feugiat elit. Praesent suscipit consequat pulvinar. In hac habitasse platea dictumst. Ut condimentum metus ut sem pretium faucibus. In blandit enim et dui tempor, in vulputate elit feugiat. In tempus porta erat, et pulvinar massa scelerisque ut. Etiam lobortis laoreet orci, at rhoncus dui feugiat non. Phasellus placerat, est vitae ultricies posuere, dolor ante convallis felis, eget cursus tellus nulla id nibh. Proin eu ante lectus. Suspendisse tincidunt massa id nisl lobortis, congue vulputate nisi posuere. Phasellus mi orci, vehicula in quam at, commodo elementum felis.\cite{ejemplo}
+
+%----------------------------------------------------------------»
+% c - Bibliografía
+%----------------------------------------------------------------»
+
+% El entorno «thebibliography» nos sirve para construir la bibliografía. Cada \bibtem es una referencia que hemos usado en nuestro documento. 
+
+% Para citar las referencias usamos el comando \cite{etiqueta}, tal y como se hizo en el último párrafo de esta plantilla.  Por supuesto, la «etiqueta» es el nombre que le hemos dado a la referencia. En el caso del primer libro de esta bibliografía vemos que la etiqueta es «ejemplo», las otras son «libro1», «libro2», etc. Usted puede usar cualquier etiqueta siempre y cuando no se repita en otra referencia. Cada referencia tiene etiqueta única.
+
+\begin{thebibliography}{99}
+
+\bibitem{ejemplo} Dr.Francis Von-Gübert: \textbf{Dos experiencia de viajes en dimensiones paralelas}. Ediciones Asimov. Urano, 2079.
+
+\bibitem{libro1} Autor del libro: \textbf{Título}. Editorial, País y Año.
+
+\bibitem{libro2} Autor del libro: \textbf{Título}. Editorial, País y Año.
+
+\bibitem{libro3} Autor del libro: \textbf{Título}. Editorial, País y Año.
+
+\bibitem{libro4} Autor del libro: \textbf{Título}. Editorial, País y Año.
+
+\bibitem{website1} TAC Web-Site: \url{http://www.tac-global.com}
+
+\bibitem{website2} PHP Web-Site: \url{http://www.php.net}
+
+\end{thebibliography}
+
+%================================================================»
+% EXPLICACIONES FINALES
+%================================================================»
+%----------------------------------------------------------------»
+% Signos en LaTeX
+%----------------------------------------------------------------»
+
+% Como se ha notado, escribir el signo % (porcentaje) produce «comentarios» dentro del código, explicaciones que no son tomadas en cuenta a la hora de «compilar» el código escrito. Si se quiere incorporar un signo % (porcentaje) como parte del texto que se está escribiendo debe escribirse con la barra de instrucción habitual, así: \% 
+
+% Hay otros signos a los que también es necesario antecederlos de la barra \ - Son los siguientes:
+
+% \		carácter inicial de comando			Se escribiría: \tt\char‘\\
+% { }	abre y cierra bloque de código		Se escribiría: \{, \}
+% $		abre y cierra el modo matemático		Se escribiría: \$
+% &		tabulador (en tablas y matrices)		Se escribiría: \&
+% #		señala parámetro en las macros		Se escribiría: \_ , \^{}
+% _, ^	para subíndices y exponentes			Se escribiría: \#
+% ~		para evitar cortes de renglón			Se escribiría: \~{}
+
+%----------------------------------------------------------------»
+% Cambios en la estética de las palabras
+%----------------------------------------------------------------»
+
+% Este es el listado de las instrucciones básicas:
+
+% - Negrita: 	\textbf{}
+% - Itálica: 	\textit{}
+% - Slanted:		\textsl{}
+% - Sans Serif:	\textsf{}
+% - Versalitas:	\textsc{}
+% - Typewriter: 	\texttt{}
+% - Enfático:	\emph{}
+
+% Lo que se escriba dentro de los corchetes de cada instrucción será lo que se verá modificado en el texto. Ejemplo:
+
+% \sc{Esto es una frase en versalitas}
+
+% Por supuesto, la anterior instrucción no compilará en este documento porque la antece un signo de % (porcentaje), que es el signo de los «comentarios». Pero, pruebe en el texto normal y verá los cambios con cada una de las anteriores instrucciones. 
+
+%--------------------------------»»
+% NOTA IMPORTANTE
+% Si alguien quiere anexar tablas o gráficos al documento, le recomiendo acercarse a la sección que lo explica en los manuales, guías o instructivos que están en BlackBoard. 
+%--------------------------------»»
+
+\end{document}
